@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="utf-8">
+      <title>3dhover</title>
+      <link rel="typesheet" type="text/css" href="3dhover.css">
+</head>
+      <body>
+       <div class="parent">
+          <div class="child"></div>
+	     <div class="child"></div>
+	        <div class="child"></div>
+		   <div class="child"></div>
+		    </div>
+				<script src="//code.jquery.com/jquery-2.1.1.min.js"></script><!--jquery下载不成功-->
+		    <script>
+		     var x = 0
+		     var y = 0
+		     function step(){
+		         $('.parent').css({
+			        transform: 'rotateX('+x+'deg) rotateY('+y+'deg)'
+				    })
+				        x = Math.random()*90 - 45
+					    y = Math.random()*90 - 45
+					        
+						    setTimeout(step, 1000)
+						        console.log(x)
+							    console.log(x)
+							      }
+							        step() 
+								</script>   
+
+								 </div>
+								 </body>
+								 </html>

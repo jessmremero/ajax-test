@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  div{width:200px;
+  height:200px;}
+  img{max-width:200px;
+  height:200px;
+  }
+  </style>
+</head>
+<body>
+  <div>
+<img data-src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1491793285&di=a6f68ab75970ed5f72807dd9da59ae0e&src=http://mvimg1.meitudata.com/56de58d2ce3a06312.jpg"
+src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491803455654&di=723dc25b7b646649703be26075dcf620&imgtype=0&src=http%3A%2F%2Fp2.gexing.com%2Fshaitu%2F20120930%2F0846%2F50679662b4536.jpg"
+   
+>
+   </div>
+  <script>
+    var allImages = document. getElementsByTagName('img')
+    var img =allImages[0]
+    var url = img.getAttribute('data-src')
+    var tempImage = new Image()
+    tempImage.src = url
+    tempImage.onload = function(){
+      img.src = url
+    }
+  </script>
+</body>
+</html>

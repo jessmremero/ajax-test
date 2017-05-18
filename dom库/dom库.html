@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+</head>
+<body>
+<ul>
+  <li class="error">1</li>
+  <li class="error">2</li>
+  <li class="error">3</li>
+  <li class="error">4</li>
+</ul>
+
+  <script src="./dom库.js"></script>
+  <script>
+  console.assert(typeof $ === 'function')//需求1：断言$是函数（浏览器提供的$）//
+  let items = $('li')//需求1：寻找页面中所有的li，并返回给变量items//
+  console.log(items)//需求1//
+  console.assert(items.on !== undefined)//需求2：items.on是存在的//
+  items.on('click',function(){
+    console.log('click')
+  })//需求2：执行items.on函数，点击输出click//
+  items.addClass('hi').removeClass('error')//需求3//
+  items.text('你好么？')//需求4：设置文本//
+  let textList = items.text()
+  console.log(textList)//需求4：获取文本。注：jQuery只取第一个//
+  console.assert(items.addEventListener === undefined)//用了items.on不能再addEventListener//
+  let item = items.get(0)
+  let $item = $(item)//$函数，返回数组。因为item已经是DOM元素，所以无法加.siblings.所以把item传给$item,这个函数可以对item进行操作//
+  console.assert(item.tagName === "LI")
+  console.assert(item.textContent === "你好么？")//获取第一个元素，验证元素是li且内容是“你好么？”// 
+  console.assert(typeof $item.on === "function")
+  console.log($item.siblings())//需求5：$item是第一个 li，返回其兄弟//
+  console.assert($item[0] === item)
+  let $li = $('li:nth-child(2)')
+  console.assert($li.siblings().previousSelection === $li)//这里有点问题//
+  console.assert($li.siblings().end() === $li.siblings().previousSelection)
+  $li.siblings().removeClass('error').end().addClass('error')//这里有点问题//
+  console.log('运行完毕')
+  </script>
+  <style>
+  .hi{
+  color:red;
+    }
+  .error{
+    color:green;
+  }
+    </style>
+</body>
+</html>
+

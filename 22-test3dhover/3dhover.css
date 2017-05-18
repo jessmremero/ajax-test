@@ -1,0 +1,32 @@
+*{
+  box-sizing:border-box;
+}
+#parent1{
+  min-width:100vh;
+  background:rgb(230,231,233);
+  padding:50px;
+  perspective:1000px;
+  box-shadow:inset 0px 0px 30px hsla(0,0%,0%,0.5);
+  position:relative;
+  margin:0 auto;
+ 
+}
+#child1{
+  perspective:1000px;
+  min-height:300px;
+ 
+  outline:5px solid black;
+  border:3px solid #ddd; background:url(http://img1.imgtn.bdimg.com/it/u=674375704,2150953263&fm=23&gp=0.jpg);
+ display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:50px; 
+  font-family:'黑体';
+  box-shadow: 10px 10px 30px hsla(0,0%,0%,0.5);
+  color:rgb(214,12,24)
+}
+#child1 > p{
+  transition:transform 1s;
+  transform:translateZ(-100px); 
+  font-size:50px; 
+}

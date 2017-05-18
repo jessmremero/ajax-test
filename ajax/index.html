@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+<title>ajax demo</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  ol{
+    list-style:none;
+  }
+  #container{display:flex;justify-content:center;flex-wrap:wrap;}
+  #container img{width:150px;max-width:800px;}
+</style>
+</head>
+<body>
+  <ol id="container">    
+
+  </ol>
+<button id="btn">加载</button>
+</body>
+<script>
+var page = 1
+  btn.onclick = function(){
+var request = new XMLHttpRequest()
+request.open('GET','./page'+ page+'.json')
+request.onload = function(){
+  page +=1
+  let object = JSON.parse(request.responseText)
+  let hasNextPage = object.hasNextPage
+  if(!hasNextPage){
+    btn.disabled = true
+  }
+  let array = object.items
+  array.forEach(function(item,index){
+  let li =document.createElement('li')
+  let img = document.createElement('img')
+  li.appendChild(img)
+  img.src =item.url
+  container.appendChild(li)
+  })
+}
+request.send()
+}
+</script>
