@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
 <title>ajax demo</title>
 <style>
@@ -12,17 +13,15 @@
 </head>
 <body>
   <ol id="container">    
-
   </ol>
 <button id="btn">加载</button>
-
 <script>
 var page = 1
-  btn.onclick = function(){
+btn.onclick = function(){
 var request = new XMLHttpRequest()
 request.open('GET','https://jessmremero.github.io/ajax-test/ajax/page'+ page+'.json')
 request.onload = function(){
-  page +=1
+  page += 1
   let object = JSON.parse(request.responseText)
   let hasNextPage = object.hasNextPage
   if(!hasNextPage){
@@ -41,3 +40,4 @@ request.send()
 }
 </script>
 </body>
+</html>
