@@ -25,8 +25,8 @@ request.onload = function(){
   var object = JSON.parse(request.responseText)
   let hasNextPage = object.hasNextPage
   if(!hasNextPage){
-    btn.disabled = true
-   button.innerText="没有下一页"
+   btn.disabled = true
+   btn.innerText="没有下一页"
   }
   let array = object.items
   array.forEach(function(item,index){
